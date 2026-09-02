@@ -1,0 +1,154 @@
+{
+  "project_name": "Crazecation - Growth & Marketing Agency",
+  "theme_strategy": {
+    "mode": "dark-editorial-hybrid",
+    "primary_background": "#0A0A0A",
+    "secondary_background": "#121212",
+    "surface_card_background": "#18181B",
+    "off_white_background": "#F4F4F5",
+    "accent_color": "#CCFF00",
+    "accent_hover": "#B8E600",
+    "text_primary": "#FAFAFA",
+    "text_secondary": "#A1A1AA",
+    "text_dark_on_lime": "#09090B",
+    "border_subtle": "#27272A",
+    "border_bright": "#3F3F46",
+    "design_archetype": "The Swiss & Electric Kinetic Editorial",
+    "art_direction_notes": "A high-impact, award-worthy editorial layout inspired by Godly and Awwwards agency sites. High contrast monochrome base (#0A0A0A black and #F4F4F5 off-white) broken by aggressive Electric Lime (#CCFF00) kinetic triggers. No generic gradients. Strict 1px hairline grid borders, high density typography, asymmetrical spans, and line-by-line text reveals."
+  },
+  "typography": {
+    "display_font": "Space Grotesk, sans-serif",
+    "body_font": "Inter, sans-serif",
+    "mono_font": "JetBrains Mono, monospace",
+    "hierarchy": {
+      "h1_hero": "text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tighter uppercase leading-[0.9]",
+      "h2_section": "text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight uppercase leading-[0.95]",
+      "h3_subsection": "text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight uppercase",
+      "h4_card": "text-xl sm:text-2xl font-bold uppercase tracking-tight",
+      "eyebrow_label": "text-xs sm:text-sm font-mono tracking-[0.25em] uppercase text-[#CCFF00]",
+      "body_large": "text-lg sm:text-xl text-neutral-300 font-light leading-relaxed",
+      "body_base": "text-base text-neutral-400 font-normal leading-relaxed",
+      "body_small": "text-sm text-neutral-500 font-normal"
+    }
+  },
+  "layout_and_spacing": {
+    "container_max_width": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-12",
+    "grid_system": {
+      "tetris_bento": "grid grid-cols-1 md:grid-cols-8 lg:grid-cols-12 gap-6 lg:gap-8",
+      "services_grid": "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6",
+      "clients_grid": "grid grid-cols-1 md:grid-cols-2 gap-8"
+    },
+    "spacing_scale": "Generous spacing philosophy: section padding py-20 lg:py-32, card internal padding p-6 lg:p-8.",
+    "border_style": "1px solid #27272A grid borders and sharp 0px or subtle 4px corner radii (rounded-none or rounded-md)"
+  },
+  "motion_and_interactions": {
+    "libraries": [
+      "framer-motion",
+      "lenis",
+      "lucide-react",
+      "sonner"
+    ],
+    "smooth_scroll": "Lenis smooth scrolling active globally for premium weight and momentum",
+    "hero_reveal": "Line-by-line masked text reveal with staggered delay (staggerChildren: 0.12)",
+    "button_interaction": "On hover, arrow moves +4px right (`group-hover:translate-x-1.5 transition-transform duration-300`), button fill switches to Electric Lime with black text",
+    "marquee": "Slow editorial drift using infinite flex translate or CSS animation with generous gap-16 and low opacity background outline text",
+    "card_hover": "Subtle border lighting up to #CCFF00 with 1px inner stroke shift and light image scale (scale-105 transition-transform duration-500)"
+  },
+  "pages_and_routes": [
+    {
+      "path": "/",
+      "name": "Home",
+      "title": "Crazecation — We Make Brands Grow",
+      "description": "Crazecation is a growth partner helping ambitious brands grow through strategy, creativity, digital marketing, performance and technology."
+    },
+    {
+      "path": "/services",
+      "name": "Services",
+      "title": "Services — Crazecation",
+      "description": "From brand strategy and performance marketing to website development and specialized OTA management."
+    },
+    {
+      "path": "/clients",
+      "name": "Clients",
+      "title": "Our Work — Crazecation",
+      "description": "Explore client growth stories and case studies across hospitality, fashion, e-commerce, and services."
+    },
+    {
+      "path": "/about",
+      "name": "About Us",
+      "title": "About Crazecation",
+      "description": "A growth partner for ambitious brands combining strategy, creativity, and performance."
+    },
+    {
+      "path": "/contact",
+      "name": "Contact Us",
+      "title": "Let's Talk — Crazecation",
+      "description": "Get in touch with Crazecation to start your brand growth journey."
+    }
+  ],
+  "image_urls": {
+    "hero_collage": [
+      {
+        "url": "https://images.unsplash.com/photo-1760337741510-1a4661e036fa?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzB8MHwxfHNlYXJjaHwxfHxjcmVhdGl2ZSUyMGFnZW5jeSUyMGhpZ2glMjBmYXNoaW9uJTIwYXJjaGl0ZWN0dXJlJTIwYnJhbmQlMjBjYW1wYWlnbiUyMHN0dWRpb3xlbnwwfHx8fDE3ODgzNTExMzh8MA&ixlib=rb-4.1.0&q=85",
+        "description": "High fashion brand studio campaign with striking red backdrop and editorial models",
+        "category": "fashion_brand"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1759308553474-ce2c768a6b7c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzB8MHwxfHNlYXJjaHw0fHxjcmVhdGl2ZSUyMGFnZW5jeSUyMGhpZ2glMjBmYXNoaW9uJTIwYXJjaGl0ZWN0dXJlJTIwYnJhbmQlMjBjYW1wYWlnbiUyMHN0dWRpb3xlbnwwfHx8fDE3ODgzNTExMzh8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Creative agency photo shoot studio directing brand models",
+        "category": "agency_culture"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1781736363506-d3840bfcb138?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzF8MHwxfHNlYXJjaHw0fHxsdXh1cnklMjBib3V0aXF1ZSUyMGhvdGVsJTIwcmVzb3J0JTIwYXJjaGl0ZWN0dXJlJTIwZGVzaWdufGVufDB8fHx8MTc4ODM1MTE0NXww&ixlib=rb-4.1.0&q=85",
+        "description": "Luxury boutique hotel poolside architecture at sunset",
+        "category": "hospitality_ota"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1773070309549-8123488410d7?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxNzV8MHwxfHNlYXJjaHw0fHxtaW5pbWFsaXN0JTIwYnJhbmQlMjBwYWNrYWdpbmclMjBtb2Rlcm4lMjBwcm9kdWN0JTIwZGVzaWdufGVufDB8fHx8MTc4ODM1MTE0NXww&ixlib=rb-4.1.0&q=85",
+        "description": "Minimalist skincare brand packaging product shoot",
+        "category": "e_commerce_product"
+      }
+    ],
+    "client_case_studies": [
+      {
+        "url": "https://images.unsplash.com/photo-1650965171703-087486b3a1b0?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzF8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBib3V0aXF1ZSUyMGhvdGVsJTIwcmVzb3J0JTIwYXJjaGl0ZWN0dXJlJTIwZGVzaWdufGVufDB8fHx8MTc4ODM1MTE0NXww&ixlib=rb-4.1.0&q=85",
+        "description": "Luxury resort pool and villa architecture - OTA Management & Hotel Brand Strategy",
+        "category": "hospitality",
+        "client_name": "AURA RESORTS & VILLAS"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1760337934036-83d1dd595378?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzB8MHwxfHNlYXJjaHwyfHxjcmVhdGl2ZSUyMGFnZW5jeSUyMGhpZ2glMjBmYXNoaW9uJTIwYXJjaGl0ZWN0dXJlJTIwYnJhbmQlMjBjYW1wYWlnbiUyMHN0dWRpb3xlbnwwfHx8fDE3ODgzNTExMzh8MA&ixlib=rb-4.1.0&q=85",
+        "description": "High fashion brand photoshoot campaign",
+        "category": "fashion",
+        "client_name": "NOIR APPAREL LAB"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1767721887917-ad186b3f5f2d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxNzV8MHwxfHNlYXJjaHwyfHxtaW5pbWFsaXN0JTIwYnJhbmQlMjBwYWNrYWdpbmclMjBtb2Rlcm4lMjBwcm9kdWN0JTIwZGVzaWdufGVufDB8fHx8MTc4ODM1MTE0NXww&ixlib=rb-4.1.0&q=85",
+        "description": "Modern organic tea beverage packaging design and growth strategy",
+        "category": "food",
+        "client_name": "MATCHA BOTANICALS"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1786457166579-92da3f9a23b8?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxNzV8MHwxfHNlYXJjaHwxfHxtaW5pbWFsaXN0JTIwYnJhbmQlMjBwYWNrYWdpbmclMjBtb2Rlcm4lMjBwcm9kdWN0JTIwZGVzaWdufGVufDB8fHx8MTc4ODM1MTE0NXww&ixlib=rb-4.1.0&q=85",
+        "description": "Minimalist D2C personal care e-commerce growth & performance marketing",
+        "category": "e-commerce",
+        "client_name": "VALE CARE LABS"
+      }
+    ]
+  },
+  "instructions_to_main_agent": [
+    "Ensure Header navigation has links to HOME | SERVICES | CLIENTS | ABOUT and a distinct CTA button LET'S TALK → that routes to /contact.",
+    "The sticky navigation must feature a solid or blurred dark background (bg-neutral-950/90 backdrop-blur-md border-b border-neutral-800) so links remain crisp.",
+    "In the Services page and Home services preview, clearly tag OTA MANAGEMENT with a prominent label 'HOSPITALITY', positioning it as a specialized hotel revenue & visibility service without giving the impression that Crazecation is hospitality-only.",
+    "Implement the Contact form so it submits via POST to /api/contact, stores the enquiry in MongoDB via FastAPI, and displays the exact requested success state: 'WE GOT IT. We'll get back to you soon.'",
+    "All client case studies and counter figures (20+ Brands, Multiple Industries, 100% Obsessed With Growth) must be editable placeholders without fabricated revenue or ROI statistics.",
+    "Add data-testid attributes to all interactive components (buttons, links, form inputs, navigation items, filter buttons) as required by guidelines."
+  ],
+  "UNIVERSAL GUIDELINES FOR MAIN AGENT": [
+    "Do NOT use dark colors as gradients. Use solid high contrast matte surfaces with subtle 1px border lines (#27272A).",
+    "DO NOT center-align main text or page containers globally; respect asymmetric editorial grid alignment.",
+    "Use Electric Lime (#CCFF00) strictly for interactive triggers, eyebrows, badge accents, and high-impact micro-animations.",
+    "Always specify transitions explicitly (e.g. transition-colors duration-200, transition-transform duration-300), NEVER use universal 'transition: all'.",
+    "Ensure all buttons, form fields, and navigation links feature data-testid attributes for automated test stability."
+  ]
+}
