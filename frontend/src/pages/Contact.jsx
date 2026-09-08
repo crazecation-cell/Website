@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
-import { contactServices } from "../data/content";
+import { useCms } from "../data/CmsContext";
 import { FadeUp, PageHero, SEO } from "../components/site/Animated";
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
@@ -25,6 +25,7 @@ function Field({ label, htmlFor, children }) {
 }
 
 function ContactForm() {
+  const { contactServices } = useCms();
   const [form, setForm] = useState(initialForm);
   const [status, setStatus] = useState("idle");
   const [error, setError] = useState("");

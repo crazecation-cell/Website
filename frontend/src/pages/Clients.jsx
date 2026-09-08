@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { ArrowUpRight } from "lucide-react";
-import { clientFilters, placeholderCases } from "../data/content";
+import { useCms } from "../data/CmsContext";
 import { CTASection, FadeUp, ImageReveal, PageHero, SectionHeading, SEO } from "../components/site/Animated";
 
 function CaseCard({ project, index }) {
@@ -41,8 +41,9 @@ function CaseCard({ project, index }) {
 }
 
 export default function Clients() {
+  const { clientFilters, clients } = useCms();
   const [active, setActive] = useState("ALL");
-  const filtered = useMemo(() => active === "ALL" ? placeholderCases : placeholderCases.filter((item) => item.category === active), [active]);
+  const filtered = useMemo(() => active === "ALL" ? clients : clients.filter((item) => item.category === active), [active, clients]);
 
   return (
     <>

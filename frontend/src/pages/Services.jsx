@@ -1,6 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import { images, services } from "../data/content";
+import { useCms } from "../data/CmsContext";
 import { CTAButton } from "../components/site/Buttons";
 import { CTASection, FadeUp, ImageReveal, PageHero, SectionHeading, SEO } from "../components/site/Animated";
 
@@ -45,6 +45,7 @@ function ServiceChapter({ service, index }) {
 }
 
 function ServicesIndex() {
+  const { services } = useCms();
   return (
     <section className="border-b border-neutral-800 bg-[#121212] px-4 py-16 sm:px-6 lg:px-12" data-testid="services-index-section">
       <div className="mx-auto max-w-7xl">
@@ -81,6 +82,7 @@ function IndustriesBand() {
 }
 
 export default function Services() {
+  const { services } = useCms();
   return (
     <>
       <SEO title="Services — Crazecation" description="From brand strategy and performance marketing to website development and specialized OTA management." />
@@ -112,7 +114,6 @@ export default function Services() {
         </div>
       </section>
       <CTASection lines={["WHAT'S YOUR", "NEXT MOVE?"]} copy="Tell us where your brand is today. We'll help you figure out where it could go." button="LET'S TALK" light />
-      <img src={images.product} alt="Crazecation product and brand visual" className="hidden" />
     </>
   );
 }

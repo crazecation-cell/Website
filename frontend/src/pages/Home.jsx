@@ -2,11 +2,12 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import { approach, images, marqueeSlots, services, stats } from "../data/content";
+import { useCms } from "../data/CmsContext";
 import { ArrowLink, CTAButton, ScrollCue } from "../components/site/Buttons";
 import { Counter, CTASection, FadeUp, ImageReveal, LineReveal, SectionHeading, SEO } from "../components/site/Animated";
 
 function Hero() {
+  const { images } = useCms();
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const yOne = useTransform(scrollYProgress, [0, 1], [0, -120]);
@@ -98,6 +99,7 @@ function Intro() {
 }
 
 function ServicesIntro() {
+  const { services } = useCms();
   return (
     <section id="services-intro" className="border-y border-neutral-800 bg-[#0A0A0A] px-4 py-24 sm:px-6 lg:px-12 lg:py-32" data-testid="home-services-section">
       <div className="mx-auto max-w-7xl">
@@ -156,6 +158,7 @@ function Why() {
 }
 
 function Approach() {
+  const { approach } = useCms();
   return (
     <section className="bg-[#F4F4F5] px-4 py-24 text-neutral-950 sm:px-6 lg:px-12 lg:py-32" data-testid="home-approach-section">
       <div className="mx-auto max-w-7xl">
@@ -175,6 +178,7 @@ function Approach() {
 }
 
 function ClientsMarquee() {
+  const { marqueeSlots } = useCms();
   return (
     <section className="overflow-hidden border-y border-neutral-800 bg-[#0A0A0A] py-24" data-testid="home-clients-section">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-12">
@@ -201,6 +205,7 @@ function ClientsMarquee() {
 }
 
 function Numbers() {
+  const { stats } = useCms();
   return (
     <section className="bg-[#CCFF00] px-4 py-24 text-neutral-950 sm:px-6 lg:px-12 lg:py-32" data-testid="home-numbers-section">
       <div className="mx-auto max-w-7xl">
@@ -219,6 +224,7 @@ function Numbers() {
 }
 
 function CreativeStatement() {
+  const { images } = useCms();
   return (
     <section className="relative overflow-hidden bg-[#F4F4F5] px-4 py-24 text-neutral-950 sm:px-6 lg:px-12 lg:py-36" data-testid="home-creative-statement">
       <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1fr_0.65fr] lg:items-center">
@@ -237,6 +243,29 @@ function CreativeStatement() {
   );
 }
 
+function Testimonials() {
+  const { testimonials } = useCms();
+  if (!testimonials.length) return null;
+  return (
+    <section className="border-y border-neutral-800 bg-[#0A0A0A] px-4 py-24 sm:px-6 lg:px-12" data-testid="home-testimonials-section">
+      <div className="mx-auto max-w-7xl">
+        <SectionHeading eyebrow="CLIENT WORDS" lines={["PROOF, IN THEIR OWN WORDS."]} />
+        <div className="mt-14 grid gap-px border border-neutral-800 bg-neutral-800 md:grid-cols-2 lg:grid-cols-3">
+          {testimonials.map((item, index) => (
+            <FadeUp key={item.id || index} delay={index * 0.06} className="bg-[#0A0A0A] p-7" testId={`testimonial-card-${index + 1}`}>
+              <p className="text-xl leading-relaxed text-neutral-200">“{item.quote}”</p>
+              <div className="mt-8 border-t border-neutral-800 pt-5">
+                <p className="font-extrabold uppercase text-[#CCFF00]">{item.client_name}</p>
+                <p className="mt-1 text-sm text-neutral-500">{[item.role, item.company].filter(Boolean).join(" · ")}</p>
+              </div>
+            </FadeUp>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function Home() {
   return (
     <>
@@ -247,6 +276,7 @@ export default function Home() {
       <Why />
       <Approach />
       <ClientsMarquee />
+      <Testimonials />
       <Numbers />
       <CreativeStatement />
       <CTASection lines={["GOT A BRAND?", "LET'S MAKE IT BIGGER."]} copy="Whether you're launching, scaling, repositioning or simply stuck — let's figure out what's next." button="LET'S TALK" />

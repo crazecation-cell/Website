@@ -97,3 +97,36 @@ Crazecation is not hospitality-only, social-media-only, performance-only or a tr
 2. Add email delivery or a secure admin inbox for enquiries.
 3. Convert placeholder case studies into verified editorial stories.
 4. Perform final brand/content review and production launch preparation.
+
+## CMS / Supabase Update — July 2026
+- Added a Supabase-ready CMS architecture using Postgres, Supabase Auth and Supabase Storage.
+- Added Alembic-managed schema for admin users, site content, services, client stories, testimonials, media assets and contact enquiries.
+- Added seed and first-admin scripts: `scripts/seed_supabase.py` and `scripts/create_admin.py`.
+- Added protected FastAPI admin routes for page content, services, clients, testimonials, media and enquiries.
+- Added Supabase JWT verification through JWKS plus a Postgres admin allow-list.
+- Added secure backend-side image uploads to a public `cms-images` bucket with image type and 5 MB size validation.
+- Added a public CMS content endpoint so the website can render published Supabase content.
+- Added React admin routes at `/admin/login` and `/admin`.
+- Added dashboard panels for overview, page content, services, clients, testimonials, media and enquiries.
+- Added dynamic frontend content context so published services, clients, testimonials, images, counters, social links and contact options can come from Supabase.
+- Added a testimonial section that appears only when published testimonials exist.
+- Added `/app/SUPABASE_SETUP.md`, backend `.env.example` and frontend `.env.example`.
+- Current preview has no Supabase credentials, so the public website remains operational on built-in content and MongoDB contact fallback while `/admin/login` displays a setup-required screen.
+
+## CMS Verification — July 2026
+- Backend modules compile successfully.
+- Alembic migration generates SQL successfully.
+- Production frontend build compiles successfully.
+- Public CMS endpoint returns 9 services and default content.
+- Admin routes return 401 without a bearer token.
+- Contact form still submits successfully and accepts CMS-managed custom service labels.
+- Home and admin setup screens were visually checked.
+- Real Supabase login, CRUD and image upload were not tested because project credentials were not provided.
+
+## Updated Next Tasks
+1. Add the real Supabase environment credentials.
+2. Run `alembic upgrade head`.
+3. Run `python scripts/seed_supabase.py`.
+4. Run `python scripts/create_admin.py admin@example.com 'TemporaryPassword123!'`.
+5. Sign in at `/admin/login`, upload real images, and replace placeholder client stories/testimonials.
+6. Save the source to GitHub and clone it into Antigravity for external development.
