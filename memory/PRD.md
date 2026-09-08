@@ -130,3 +130,9 @@ Crazecation is not hospitality-only, social-media-only, performance-only or a tr
 4. Run `python scripts/create_admin.py admin@example.com 'TemporaryPassword123!'`.
 5. Sign in at `/admin/login`, upload real images, and replace placeholder client stories/testimonials.
 6. Save the source to GitHub and clone it into Antigravity for external development.
+
+## Preview Incident — July 2026
+- User reported the preview showed an error.
+- Independent diagnostics found the preview healthy: frontend HTTP 200, backend HTTP 200, CMS public endpoint valid, browser title and homepage rendered.
+- Likely cause was a temporary 502 during backend hot reload while an intermediate CMS schema edit was being corrected.
+- Current backend logs show clean startup after reload; no further code change was required.
