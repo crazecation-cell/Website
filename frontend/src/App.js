@@ -5,14 +5,11 @@ import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import "@/App.css";
 import { Header } from "./components/site/Header";
 import { Footer } from "./components/site/Footer";
-import { CmsProvider } from "./data/CmsContext";
 import Home from "./pages/Home";
 import Services from "./pages/Services";
 import Clients from "./pages/Clients";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
-import AdminLogin from "./pages/AdminLogin";
-import AdminDashboard from "./pages/AdminDashboard";
 
 function ScrollManager() {
   const location = useLocation();
@@ -39,30 +36,9 @@ function AnimatedRoutes() {
           <Route path="/clients" element={<Clients />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/admin/login" element={<AdminLogin />} />
-          <Route path="/admin" element={<AdminDashboard />} />
         </Routes>
       </motion.main>
     </AnimatePresence>
-  );
-}
-
-function SiteFrame() {
-  const location = useLocation();
-  const isAdmin = location.pathname.startsWith("/admin");
-  return (
-    <>
-      <ScrollManager />
-      {isAdmin ? (
-        <AnimatedRoutes />
-      ) : (
-        <CmsProvider>
-          <Header />
-          <AnimatedRoutes />
-          <Footer />
-        </CmsProvider>
-      )}
-    </>
   );
 }
 
@@ -84,7 +60,10 @@ function App() {
   return (
     <div className="App bg-[#0A0A0A] text-neutral-50">
       <BrowserRouter>
-        <SiteFrame />
+        <ScrollManager />
+        <Header />
+        <AnimatedRoutes />
+        <Footer />
       </BrowserRouter>
     </div>
   );

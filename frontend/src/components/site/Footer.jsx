@@ -1,9 +1,7 @@
 import { Link } from "react-router-dom";
-import { navItems } from "../../data/content";
-import { useCms } from "../../data/CmsContext";
+import { navItems, socialLinks } from "../../data/content";
 
 export function Footer() {
-  const { socialLinks } = useCms();
   return (
     <footer className="border-t border-neutral-800 bg-[#070707] px-4 py-14 text-neutral-50 sm:px-6 lg:px-12" data-testid="site-footer">
       <div className="mx-auto max-w-7xl">

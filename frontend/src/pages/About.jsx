@@ -1,4 +1,4 @@
-import { useCms } from "../data/CmsContext";
+import { images, personality } from "../data/content";
 import { CTASection, FadeUp, ImageReveal, PageHero, SectionHeading, SEO } from "../components/site/Animated";
 
 function Story() {
@@ -20,7 +20,6 @@ function Story() {
 }
 
 function Personality() {
-  const { personality } = useCms();
   return (
     <section className="border-y border-neutral-800 bg-[#0A0A0A] px-4 py-24 sm:px-6 lg:px-12 lg:py-32" data-testid="about-personality-section">
       <div className="mx-auto max-w-7xl">
@@ -57,7 +56,6 @@ function Belief() {
 }
 
 function Approach() {
-  const { images } = useCms();
   return (
     <section className="bg-[#F4F4F5] px-4 py-24 text-neutral-950 sm:px-6 lg:px-12 lg:py-36" data-testid="about-approach-section">
       <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-2 lg:items-center">

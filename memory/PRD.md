@@ -132,7 +132,16 @@ Crazecation is not hospitality-only, social-media-only, performance-only or a tr
 6. Save the source to GitHub and clone it into Antigravity for external development.
 
 ## Preview Incident — July 2026
-- User reported the preview showed an error.
-- Independent diagnostics found the preview healthy: frontend HTTP 200, backend HTTP 200, CMS public endpoint valid, browser title and homepage rendered.
-- Likely cause was a temporary 502 during backend hot reload while an intermediate CMS schema edit was being corrected.
-- Current backend logs show clean startup after reload; no further code change was required.
+- User reported the preview showed an error; independent diagnostics found it healthy after backend hot-reload recovery.
+
+## Final Vercel Version — July 2026
+- User decided to deploy on Vercel WITHOUT Supabase.
+- Removed ALL Supabase code: auth.py, database.py, models.py, schemas.py, storage_client.py, cms_defaults.py, alembic migrations, seed/admin scripts, CmsContext, supabase.js, AdminLogin, AdminDashboard, AdminPanels, SUPABASE_SETUP.md.
+- Removed @supabase/supabase-js npm package.
+- Backend is now contact-form-only FastAPI + MongoDB (2 endpoints: GET /api/, POST /api/contact).
+- Backend requirements.txt slimmed to 7 packages (fastapi, uvicorn, motor, pymongo, pydantic, email-validator, python-dotenv) — safe for Vercel's serverless size limit.
+- Frontend is fully static content (5 pages) — no CMS, no admin routes.
+- vercel.json at repo root routes /api/* to backend, everything else to React SPA.
+- Verified: yarn build passes, backend compiles and runs, contact form works, homepage renders, zero Supabase references in code.
+- Vercel env vars needed: MONGO_URL (Atlas), DB_NAME, CORS_ORIGINS, REACT_APP_BACKEND_URL.
+- CMS/dashboard is REMOVED. If needed later, it must be rebuilt.
