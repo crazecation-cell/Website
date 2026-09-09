@@ -7,7 +7,7 @@
       "config": {
         "distDir": "build",
         "buildCommand": "yarn build",
-        "installCommand": "yarn install"
+        "installCommand": "npm install --legacy-peer-deps"
       }
     }
   ],
