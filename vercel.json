@@ -9,17 +9,9 @@
         "buildCommand": "yarn build",
         "installCommand": "yarn install"
       }
-    },
-    {
-      "src": "backend/server.py",
-      "use": "@vercel/python"
     }
   ],
   "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "backend/server.py"
-    },
     {
       "src": "/(.*\\.[a-zA-Z0-9]+)$",
       "dest": "frontend/$1"

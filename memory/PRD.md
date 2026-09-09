@@ -134,7 +134,16 @@ Crazecation is not hospitality-only, social-media-only, performance-only or a tr
 ## Preview Incident — July 2026
 - User reported the preview showed an error; independent diagnostics found it healthy after backend hot-reload recovery.
 
-## Final Vercel Version — July 2026
+## Final Frontend-Only Version — July 2026
+- User requested full removal of backend, MongoDB and all server dependencies for a pure Vercel static deployment.
+- Deleted the entire `/app/backend` directory (FastAPI, MongoDB, all Python code and requirements).
+- Removed `axios` from the frontend; zero references to `process.env`, `REACT_APP_BACKEND_URL`, `MONGO_URL`, `DB_NAME` or CORS remain in the code.
+- Contact form no longer calls an API: SEND IT opens a pre-filled email draft (mailto) and shows the success panel; EMAIL US and WHATSAPP US buttons added beside the form.
+- Editable contact constants live at the top of `frontend/src/pages/Contact.jsx`: `CONTACT_EMAIL` (currently placeholder `hello@crazecation.com`) and `WHATSAPP_NUMBER` (currently placeholder `910000000000`) — replace with real details before launch.
+- `vercel.json` simplified to frontend-only static build with SPA fallback routes. No environment variables are required anywhere.
+- `frontend/.env.example` updated to state no env vars are needed. Root `frontend/.env` keys are no longer read by any code.
+- Verified: `yarn build` passes, no backend references in src, contact form success flow works, email/WhatsApp hrefs correct, design and content unchanged.
+
 - User decided to deploy on Vercel WITHOUT Supabase.
 - Removed ALL Supabase code: auth.py, database.py, models.py, schemas.py, storage_client.py, cms_defaults.py, alembic migrations, seed/admin scripts, CmsContext, supabase.js, AdminLogin, AdminDashboard, AdminPanels, SUPABASE_SETUP.md.
 - Removed @supabase/supabase-js npm package.

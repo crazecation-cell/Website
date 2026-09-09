@@ -1,10 +1,10 @@
 import { useState } from "react";
-import axios from "axios";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight, CheckCircle2, Mail, MessageCircle } from "lucide-react";
 import { contactServices } from "../data/content";
 import { FadeUp, PageHero, SEO } from "../components/site/Animated";
 
-const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
+const CONTACT_EMAIL = "hello@crazecation.com";
+const WHATSAPP_NUMBER = "910000000000";
 
 const initialForm = {
   name: "",
@@ -27,21 +27,24 @@ function Field({ label, htmlFor, children }) {
 function ContactForm() {
   const [form, setForm] = useState(initialForm);
   const [status, setStatus] = useState("idle");
-  const [error, setError] = useState("");
 
   const update = (event) => setForm((current) => ({ ...current, [event.target.name]: event.target.value }));
 
-  const submit = async (event) => {
+  const submit = (event) => {
     event.preventDefault();
-    setStatus("loading");
-    setError("");
-    try {
-      await axios.post(`${API}/contact`, form);
-      setStatus("success");
-    } catch (err) {
-      setStatus("error");
-      setError(err.response?.data?.detail?.[0]?.msg || "Something went wrong. Please try again.");
-    }
+    const subject = `New enquiry from ${form.name} — ${form.brand}`;
+    const body = [
+      `Name: ${form.name}`,
+      `Brand / Company: ${form.brand}`,
+      `Email: ${form.email}`,
+      `Phone: ${form.phone}`,
+      `Needs help with: ${form.service}`,
+      "",
+      "About the brand:",
+      form.message,
+    ].join("\n");
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    setStatus("success");
   };
 
   if (status === "success") {
@@ -49,7 +52,7 @@ function ContactForm() {
       <FadeUp className="flex min-h-[560px] flex-col items-start justify-center border border-[#CCFF00] bg-[#0A0A0A] p-8 lg:p-12" testId="contact-success-message">
         <CheckCircle2 className="mb-8 h-14 w-14 text-[#CCFF00]" />
         <h2 className="text-5xl font-extrabold uppercase tracking-[-0.06em] text-neutral-50 sm:text-7xl">WE GOT IT.</h2>
-        <p className="mt-6 text-xl text-neutral-400">We'll get back to you soon.</p>
+        <p className="mt-6 text-xl text-neutral-400">Your email draft is open — hit send and we'll get back to you soon.</p>
         <button
           data-testid="send-another-enquiry-button"
           type="button"
@@ -90,14 +93,12 @@ function ContactForm() {
           <textarea data-testid="contact-message-textarea" id="message" name="message" value={form.message} onChange={update} required minLength="10" rows="7" className="editorial-input resize-none" placeholder="Where are you now? Where do you want to go?" />
         </Field>
       </div>
-      {error && <p data-testid="contact-form-error" className="mt-6 border border-red-500/40 bg-red-500/10 p-4 text-sm text-red-200">{error}</p>}
       <button
         data-testid="contact-submit-button"
         type="submit"
-        disabled={status === "loading"}
-        className="group mt-10 inline-flex min-h-14 w-full items-center justify-center gap-3 rounded-full bg-[#CCFF00] px-8 text-sm font-extrabold uppercase tracking-[0.18em] text-neutral-950 transition-colors duration-300 hover:bg-neutral-50 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
+        className="group mt-10 inline-flex min-h-14 w-full items-center justify-center gap-3 rounded-full bg-[#CCFF00] px-8 text-sm font-extrabold uppercase tracking-[0.18em] text-neutral-950 transition-colors duration-300 hover:bg-neutral-50 sm:w-auto"
       >
-        {status === "loading" ? "SENDING..." : "SEND IT"}
+        SEND IT
         <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1.5" />
       </button>
     </form>
@@ -122,6 +123,24 @@ export default function Contact() {
               <p className="text-lg font-semibold text-neutral-50">NOT READY FOR A MEETING?</p>
               <p className="mt-4">That's okay.</p>
               <p className="mt-2">Tell us what you're working on and we'll take it from there.</p>
+            </div>
+            <div className="mt-10 flex flex-col gap-3 sm:flex-row lg:flex-col">
+              <a
+                data-testid="contact-email-link"
+                href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("Let's talk growth")}`}
+                className="group inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-[#CCFF00] px-6 text-sm font-extrabold uppercase tracking-[0.16em] text-neutral-950 transition-colors duration-300 hover:bg-neutral-50"
+              >
+                <Mail className="h-4 w-4" /> EMAIL US
+              </a>
+              <a
+                data-testid="contact-whatsapp-link"
+                href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hi Crazecation — let's talk growth.")}`}
+                target="_blank"
+                rel="noreferrer"
+                className="group inline-flex min-h-12 items-center justify-center gap-3 rounded-full border border-neutral-700 px-6 text-sm font-extrabold uppercase tracking-[0.16em] text-neutral-50 transition-colors duration-300 hover:border-[#CCFF00] hover:text-[#CCFF00]"
+              >
+                <MessageCircle className="h-4 w-4" /> WHATSAPP US
+              </a>
             </div>
           </FadeUp>
           <FadeUp delay={0.12}>
