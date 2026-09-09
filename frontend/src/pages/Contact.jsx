@@ -3,8 +3,8 @@ import { ArrowRight, CheckCircle2, Mail, MessageCircle } from "lucide-react";
 import { contactServices } from "../data/content";
 import { FadeUp, PageHero, SEO } from "../components/site/Animated";
 
-const CONTACT_EMAIL = "hello@crazecation.com";
-const WHATSAPP_NUMBER = "910000000000";
+const CONTACT_EMAIL = "crazecation@gmail.com";
+const WHATSAPP_NUMBER = "918209665356";
 
 const initialForm = {
   name: "",

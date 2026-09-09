@@ -139,7 +139,7 @@ Crazecation is not hospitality-only, social-media-only, performance-only or a tr
 - Deleted the entire `/app/backend` directory (FastAPI, MongoDB, all Python code and requirements).
 - Removed `axios` from the frontend; zero references to `process.env`, `REACT_APP_BACKEND_URL`, `MONGO_URL`, `DB_NAME` or CORS remain in the code.
 - Contact form no longer calls an API: SEND IT opens a pre-filled email draft (mailto) and shows the success panel; EMAIL US and WHATSAPP US buttons added beside the form.
-- Editable contact constants live at the top of `frontend/src/pages/Contact.jsx`: `CONTACT_EMAIL` (currently placeholder `hello@crazecation.com`) and `WHATSAPP_NUMBER` (currently placeholder `910000000000`) — replace with real details before launch.
+- Editable contact constants live at the top of `frontend/src/pages/Contact.jsx`: `CONTACT_EMAIL` = `crazecation@gmail.com` (user provided "crazecation" — assumed Gmail, confirm with user) and `WHATSAPP_NUMBER` = `918209665356` (real number 8209665356 + India country code).
 - `vercel.json` simplified to frontend-only static build with SPA fallback routes. No environment variables are required anywhere.
 - `frontend/.env.example` updated to state no env vars are needed. Root `frontend/.env` keys are no longer read by any code.
 - Verified: `yarn build` passes, no backend references in src, contact form success flow works, email/WhatsApp hrefs correct, design and content unchanged.
